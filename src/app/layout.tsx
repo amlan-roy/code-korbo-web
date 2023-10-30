@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -22,8 +23,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.png" as="image" />
       </head>
       <body>
-        <div className="flex h-screen bg-slate-50 min-w-[360px] flex-col text-label-1 dark:text-dark-label-1 justify-between">
+        <div className="flex h-screen bg-slate-50 flex-col text-label-1 justify-between">
           {children}
+          <Footer />
         </div>
       </body>
     </html>
