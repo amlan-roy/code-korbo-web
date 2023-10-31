@@ -1,16 +1,10 @@
 "use client";
 
 import "./globals.css";
-import type { Metadata } from "next";
 import { RecoilRoot } from "recoil";
 import { usePathname } from "next/navigation";
 import Footer from "@/components/Footer/Footer";
 import Topbar from "@/components/Topbar/Topbar";
-
-export const metadata: Metadata = {
-  title: "Code Korbo: Online code practice app",
-  description: "This web app helps you practice coding online",
-};
 
 export default function RootLayout({
   children,
