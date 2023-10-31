@@ -12,6 +12,7 @@ import { TFormattedQuestion } from "@/utils/types/question";
 import { TQuestionDifficultyName } from "@/utils/types/difficulty";
 import { TQuestionCategoryName } from "@/utils/types/category";
 import { TQuestionStatusName } from "@/utils/types/solutionStatus";
+import QuestionsTable from "@/components/QuestionsTable/QuestionsTable";
 
 export default function Home() {
   const [fetchedProblems, setFetchedProblems] =
@@ -82,7 +83,12 @@ export default function Home() {
       </Typography>
       <div className="relative overflow-x-auto mx-auto px-6 pb-10 w-full h-full">
         <SearchBar setData={filterData} />
-        {/* Questions table will come here */}
+        <QuestionsTable
+          data={data || fetchedProblems}
+          setFetchedProblems={setFetchedProblems}
+          uid={user?.uid}
+          loading={!!!fetchedProblems}
+        />
       </div>
     </div>
   );
