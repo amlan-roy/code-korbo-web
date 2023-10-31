@@ -1,6 +1,10 @@
-import Footer from "@/components/Footer/Footer";
+"use client";
+
 import "./globals.css";
 import type { Metadata } from "next";
+import { usePathname } from "next/navigation";
+import Footer from "@/components/Footer/Footer";
+import Topbar from "@/components/Topbar/Topbar";
 
 export const metadata: Metadata = {
   title: "Code Korbo: Online code practice app",
@@ -12,6 +16,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const currentPathName = usePathname();
+  const problemsPagePath = "/problem/";
   return (
     <html lang="en">
       <head>
@@ -24,6 +30,7 @@ export default function RootLayout({
       </head>
       <body>
         <div className="flex h-screen bg-slate-50 flex-col text-label-1 justify-between">
+          <Topbar problemPage={currentPathName.startsWith(problemsPagePath)} />
           {children}
           <Footer />
         </div>
