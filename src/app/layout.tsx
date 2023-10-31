@@ -2,6 +2,7 @@
 
 import "./globals.css";
 import type { Metadata } from "next";
+import { RecoilRoot } from "recoil";
 import { usePathname } from "next/navigation";
 import Footer from "@/components/Footer/Footer";
 import Topbar from "@/components/Topbar/Topbar";
@@ -28,13 +29,17 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.png" as="image" />
       </head>
-      <body>
-        <div className="flex h-screen bg-slate-50 flex-col text-label-1 justify-between">
-          <Topbar problemPage={currentPathName.startsWith(problemsPagePath)} />
-          {children}
-          <Footer />
-        </div>
-      </body>
+      <RecoilRoot>
+        <body>
+          <div className="flex h-screen bg-slate-50 flex-col text-label-1 justify-between">
+            <Topbar
+              problemPage={currentPathName.startsWith(problemsPagePath)}
+            />
+            {children}
+            <Footer />
+          </div>
+        </body>
+      </RecoilRoot>
     </html>
   );
 }
