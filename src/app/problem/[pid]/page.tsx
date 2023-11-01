@@ -34,7 +34,7 @@ const ProblemPage: React.FC<ProblemPageProps> = ({ params }) => {
   }, [user]);
 
   return (
-    <AuthenticatedPage childLoading={!hasMounted || !!!problem}>
+    <AuthenticatedPage childLoading={!hasMounted || !!!problem || loading}>
       <Workspace problem={problem as TFormattedQuestion} />
     </AuthenticatedPage>
   );
