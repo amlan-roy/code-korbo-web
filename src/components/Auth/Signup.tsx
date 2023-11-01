@@ -120,6 +120,7 @@ const Signup: React.FC<SignupProps> = () => {
             id="email-input-signup"
             placeholder="Enter your email id"
             type="email"
+            autoComplete="email"
             fullWidth
             startAdornment={
               <InputAdornment position="start">
@@ -139,6 +140,7 @@ const Signup: React.FC<SignupProps> = () => {
           <Input
             id="name-input-signup"
             placeholder="Enter your full name"
+            autoComplete="name"
             type="text"
             fullWidth
             startAdornment={
@@ -159,6 +161,7 @@ const Signup: React.FC<SignupProps> = () => {
           <Input
             id="password-input-signup"
             placeholder="Enter your password"
+            autoComplete="new-password"
             type="password"
             fullWidth
             startAdornment={

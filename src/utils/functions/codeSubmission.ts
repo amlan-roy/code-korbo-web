@@ -1,6 +1,13 @@
 import axios from "axios";
 import { CODE_EXECUTION_DOMAIN } from "@/utils/constants/constants";
 
+export const judge_0_config = {
+  headers: {
+    "X-RapidAPI-Key": process.env.NEXT_PUBLIC_JUDGE_0_X_RAPIDAPI_KEY,
+    "X-RapidAPI-Host": process.env.NEXT_PUBLIC_JUDGE_0_X_RAPDAPI_HOST,
+  },
+};
+
 export type TCodeSubmissionResponse = {
   stdout: string;
   time?: number;
@@ -46,7 +53,7 @@ export const runCode = async (
 
   const {
     data: { token },
-  }: { data: { token: string } } = await axios.post(url, data);
+  }: { data: { token: string } } = await axios.post(url, data, judge_0_config);
 
   return token;
 };
@@ -57,7 +64,10 @@ export const getSubmissionData = async (
 ) => {
   const url = `${CODE_EXECUTION_DOMAIN}submissions/${token}`;
 
-  const { data }: { data: TCodeSubmissionResponse } = await axios.get(url);
+  const { data }: { data: TCodeSubmissionResponse } = await axios.get(
+    url,
+    judge_0_config
+  );
   return data;
 };
 
@@ -100,7 +110,8 @@ export const runBatchCode = async (
 
   const { data: tokensList }: { data: { token: string }[] } = await axios.post(
     url,
-    { submissions: data }
+    { submissions: data },
+    judge_0_config
   );
 
   return tokensList;
@@ -115,7 +126,8 @@ export const getBatchSubmissionData = async (
   const {
     data: { submissions },
   }: { data: { submissions: TCodeSubmissionResponse[] } } = await axios.get(
-    url
+    url,
+    judge_0_config
   );
   return submissions;
 };

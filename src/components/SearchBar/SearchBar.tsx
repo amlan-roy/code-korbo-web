@@ -86,6 +86,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setData }) => {
         label="Search question"
         type="search"
         variant="outlined"
+        autoComplete="on"
         className="mt-2"
         {...register("searchText")}
       />

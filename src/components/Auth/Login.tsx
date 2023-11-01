@@ -89,6 +89,7 @@ const Login: React.FC<LoginProps> = () => {
             placeholder="Enter your email id"
             type="email"
             fullWidth
+            autoComplete="email"
             startAdornment={
               <InputAdornment position="start">
                 <EmailOutlinedIcon />
@@ -108,6 +109,7 @@ const Login: React.FC<LoginProps> = () => {
             id="password-input-login"
             placeholder="Enter your password"
             type="password"
+            autoComplete="current-password"
             fullWidth
             startAdornment={
               <InputAdornment position="start">

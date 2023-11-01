@@ -50,8 +50,8 @@ const Navbar: React.FC<NavbarProps> = ({
   const open = Boolean(anchorEl);
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const handleDrawerToggle = (value?: boolean) => {
+    setMobileOpen(value ?? !mobileOpen);
   };
 
   const handleButtonClick: React.MouseEventHandler<HTMLButtonElement> = (
@@ -67,9 +67,9 @@ const Navbar: React.FC<NavbarProps> = ({
         "handleLogout method should be passed when isLoggedIn is true"
       );
     }
-    handleLogout?.().then(() => {
-      handleClose();
-    });
+    handleClose();
+    handleDrawerToggle(false);
+    handleLogout?.();
   };
 
   const handleClose = () => {
@@ -84,7 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({
             color="inherit"
             aria-label="open drawer"
             edge="start"
-            onClick={handleDrawerToggle}
+            onClick={() => handleDrawerToggle()}
             sx={{ mr: 2 }}
             className="block sm:!hidden" //using classname instead of sx to use the same breakpoints
           >
@@ -144,7 +144,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <Drawer
             variant="temporary"
             open={mobileOpen}
-            onClose={handleDrawerToggle}
+            onClose={() => handleDrawerToggle()}
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
             }}
@@ -163,7 +163,7 @@ const Navbar: React.FC<NavbarProps> = ({
                     color="inherit"
                     aria-label="open drawer"
                     edge="start"
-                    onClick={handleDrawerToggle}
+                    onClick={() => handleDrawerToggle()}
                     sx={{ mr: 2 }}
                     className="block sm:hidden" //using classname instead of sx to use the same breakpoints
                   >
