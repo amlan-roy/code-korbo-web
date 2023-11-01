@@ -12,6 +12,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
+    "@monaco-editor/react": "^4.6.0",
     "@mui/icons-material": "^5.14.15",
     "@mui/material": "^5.14.15",
     "@types/node": "20.8.9",
@@ -33,5 +34,8 @@
     "recoil": "^0.7.7",
     "tailwindcss": "3.3.5",
     "typescript": "5.2.2"
+  },
+  "peerDependencies": {
+    "monaco-editor": "^0.44.0"
   }
 }

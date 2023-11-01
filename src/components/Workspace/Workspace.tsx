@@ -4,7 +4,8 @@ import { useState } from "react";
 import { TFormattedQuestion } from "@/utils/types/question";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import ProblemDescription from "./ProblemDescription/ProblemDescription";
+import ProblemDescription from "@/components/Workspace/ProblemDescription/ProblemDescription";
+import CodeEditor from "@/components/Workspace/CodeEditor/CodeEditor";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -40,6 +41,12 @@ type WorkspaceProps = {
 
 const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    problem.solutions[0]
+  );
+  const [userCode, setUserCode] = useState<string>(
+    `${selectedLanguage.starterCode}${"\n".repeat(15)}`
+  );
 
   function tabsA11yProps(index: number) {
     return {
@@ -67,8 +74,19 @@ const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
       <CustomTabPanel value={activeTabIndex} index={0}>
         <ProblemDescription problem={problem} />
       </CustomTabPanel>
-      <CustomTabPanel value={activeTabIndex} index={1}>
-        Code Editor
+      <CustomTabPanel
+        value={activeTabIndex}
+        index={1}
+        contentNotScrollable
+        className="bg-dark-layer-1 flex justify-between flex-col h-full"
+      >
+        <CodeEditor
+          problem={problem}
+          selectedLanguage={selectedLanguage}
+          setSelectedLanguage={setSelectedLanguage}
+          setUserCode={setUserCode}
+          userCode={userCode}
+        />
       </CustomTabPanel>
       <CustomTabPanel value={activeTabIndex} index={2}>
         Console
