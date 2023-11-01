@@ -90,6 +90,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
             <Input
               id="email-input-rest-password"
               placeholder="Enter your email id"
+              autoComplete="email"
               type="email"
               fullWidth
               startAdornment={

@@ -67,9 +67,9 @@ const Navbar: React.FC<NavbarProps> = ({
         "handleLogout method should be passed when isLoggedIn is true"
       );
     }
-    handleLogout?.().then(() => {
-      handleClose();
-    });
+    handleClose();
+    handleDrawerToggle(false);
+    handleLogout?.();
   };
 
   const handleClose = () => {

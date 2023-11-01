@@ -7,6 +7,7 @@ import { CODE_EXECUTION_DOMAIN } from "@/utils/constants/constants";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "@/firebase/firebase";
 import axios from "axios";
+import { judge_0_config } from "./codeSubmission";
 
 /**
  * Async function that fetches all the problem categories
@@ -39,8 +40,8 @@ export const fetchDifficulties = async () => {
  *
  */
 export const fetchLanguages = async () => {
-  const targetUrl = `${CODE_EXECUTION_DOMAIN}/languages/all`;
-  const res = await axios.get(targetUrl);
+  const targetUrl = `${CODE_EXECUTION_DOMAIN}languages/all`;
+  const res = await axios.get(targetUrl, judge_0_config);
   const response: Array<TQuestionLanguage> = res.data;
   return response;
 };
