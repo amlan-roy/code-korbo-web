@@ -1,5 +1,3 @@
-import CircleSkeleton from "@/components/Skeletons/CircleSkeleton";
-import RectangleSkeleton from "@/components/Skeletons/RectangleSkeleton";
 import { auth, firestore } from "@/firebase/firebase";
 import { fetchUserData, isProblemSolved } from "@/utils/functions/dataFetchers";
 import { TFormattedQuestion, TQuestionDB } from "@/utils/types/question";
