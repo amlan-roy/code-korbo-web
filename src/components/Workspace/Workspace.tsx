@@ -4,7 +4,7 @@ import { useState } from "react";
 import { TFormattedQuestion } from "@/utils/types/question";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import LoadingPage from "../Pages/LoadingPage";
+import ProblemDescription from "./ProblemDescription/ProblemDescription";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -65,7 +65,7 @@ const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
         </Tabs>
       </div>
       <CustomTabPanel value={activeTabIndex} index={0}>
-        Description Tab Page
+        <ProblemDescription problem={problem} />
       </CustomTabPanel>
       <CustomTabPanel value={activeTabIndex} index={1}>
         Code Editor
