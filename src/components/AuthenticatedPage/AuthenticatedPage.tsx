@@ -16,11 +16,11 @@ const AuthenticatedPage: React.FC<AuthenticatedPageProps> = ({
   loadingUI = <LoadingPage />,
 }) => {
   const [user, loading, authError] = useAuthState(auth);
+  const shouldRedirect = authError || (!loading && !!!user);
 
   useEffect(() => {
-    const shouldRedirect = authError || (!loading && !user);
     if (shouldRedirect) redirect("/auth");
-  }, [user, loading]);
-  return loading ? loadingUI : children;
+  }, [shouldRedirect]);
+  return shouldRedirect || loading ? loadingUI : children;
 };
 export default AuthenticatedPage;
