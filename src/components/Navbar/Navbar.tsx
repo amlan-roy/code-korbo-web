@@ -84,7 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({
             color="inherit"
             aria-label="open drawer"
             edge="start"
-            onClick={handleDrawerToggle}
+            onClick={() => handleDrawerToggle()}
             sx={{ mr: 2 }}
             className="block sm:!hidden" //using classname instead of sx to use the same breakpoints
           >
@@ -144,7 +144,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <Drawer
             variant="temporary"
             open={mobileOpen}
-            onClose={handleDrawerToggle}
+            onClose={() => handleDrawerToggle()}
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
             }}
@@ -163,7 +163,7 @@ const Navbar: React.FC<NavbarProps> = ({
                     color="inherit"
                     aria-label="open drawer"
                     edge="start"
-                    onClick={handleDrawerToggle}
+                    onClick={() => handleDrawerToggle()}
                     sx={{ mr: 2 }}
                     className="block sm:hidden" //using classname instead of sx to use the same breakpoints
                   >
