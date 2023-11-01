@@ -1,11 +1,13 @@
 "use client";
 
-import AuthenticatedPage from "@/components/AuthenticatedPage/AuthenticatedPage";
-import { auth } from "@/firebase/firebase";
-import { getFormattedProblem } from "@/utils/functions/dataFetchers";
-import { TFormattedQuestion } from "@/utils/types/question";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import AuthenticatedPage from "@/components/AuthenticatedPage/AuthenticatedPage";
+import Workspace from "@/components/Workspace/Workspace";
+import { auth } from "@/firebase/firebase";
+import useHasMounted from "@/hooks/useHasMounted";
+import { getFormattedProblem } from "@/utils/functions/dataFetchers";
+import { TFormattedQuestion } from "@/utils/types/question";
 
 type ProblemPageProps = {
   params: {
@@ -14,6 +16,7 @@ type ProblemPageProps = {
 };
 
 const ProblemPage: React.FC<ProblemPageProps> = ({ params }) => {
+  const hasMounted = useHasMounted();
   const [problem, setProblem] = useState<TFormattedQuestion>();
   const [user] = useAuthState(auth);
 
@@ -28,7 +31,7 @@ const ProblemPage: React.FC<ProblemPageProps> = ({ params }) => {
 
   return (
     <AuthenticatedPage>
-      <div className="flex w-full grow flex-col">Problems Page</div>;
+      <Workspace problem={problem} loading={!hasMounted || !problem} />
     </AuthenticatedPage>
   );
 };
