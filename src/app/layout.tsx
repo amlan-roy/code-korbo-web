@@ -3,6 +3,8 @@
 import "./globals.css";
 import { RecoilRoot } from "recoil";
 import { usePathname } from "next/navigation";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Footer from "@/components/Footer/Footer";
 import Topbar from "@/components/Topbar/Topbar";
 
@@ -25,6 +27,7 @@ export default function RootLayout({
       </head>
       <RecoilRoot>
         <body>
+          <ToastContainer />
           <div className="flex h-screen bg-slate-50 flex-col text-label-1 justify-between">
             <Topbar
               problemPage={currentPathName.startsWith(problemsPagePath)}
