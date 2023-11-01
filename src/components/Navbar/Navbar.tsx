@@ -50,8 +50,8 @@ const Navbar: React.FC<NavbarProps> = ({
   const open = Boolean(anchorEl);
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const handleDrawerToggle = (value?: boolean) => {
+    setMobileOpen(value ?? !mobileOpen);
   };
 
   const handleButtonClick: React.MouseEventHandler<HTMLButtonElement> = (
