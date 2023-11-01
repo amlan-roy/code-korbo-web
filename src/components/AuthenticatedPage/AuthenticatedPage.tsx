@@ -9,11 +9,13 @@ import LoadingPage from "../Pages/LoadingPage";
 type AuthenticatedPageProps = {
   children: React.ReactNode;
   loadingUI?: React.ReactNode;
+  childLoading?: boolean;
 };
 
 const AuthenticatedPage: React.FC<AuthenticatedPageProps> = ({
   children,
   loadingUI = <LoadingPage />,
+  childLoading,
 }) => {
   const [user, loading, authError] = useAuthState(auth);
   const shouldRedirect = authError || (!loading && !!!user);
@@ -21,6 +23,6 @@ const AuthenticatedPage: React.FC<AuthenticatedPageProps> = ({
   useEffect(() => {
     if (shouldRedirect) redirect("/auth");
   }, [shouldRedirect]);
-  return shouldRedirect || loading ? loadingUI : children;
+  return shouldRedirect || loading || childLoading ? loadingUI : children;
 };
 export default AuthenticatedPage;
