@@ -35,13 +35,10 @@ function CustomTabPanel(props: TabPanelProps) {
 }
 
 type WorkspaceProps = {
-  problem?: TFormattedQuestion;
-  loading: boolean;
+  problem: TFormattedQuestion;
 };
 
-const Workspace: React.FC<WorkspaceProps> = ({ problem, loading }) => {
-  if (loading || !problem) return <LoadingPage />;
-
+const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
   function tabsA11yProps(index: number) {

@@ -19,19 +19,23 @@ const ProblemPage: React.FC<ProblemPageProps> = ({ params }) => {
   const hasMounted = useHasMounted();
   const [problem, setProblem] = useState<TFormattedQuestion>();
   const [user] = useAuthState(auth);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const id = decodeURIComponent(params.pid);
     const uid = user?.uid;
     if (uid && !!!problem)
       fetchData(id, uid).then((fetchedProblem) => {
-        fetchedProblem && setProblem(fetchedProblem);
+        if (fetchedProblem) {
+          setProblem(fetchedProblem);
+          setLoading(false);
+        }
       });
   }, [user]);
 
   return (
-    <AuthenticatedPage>
-      <Workspace problem={problem} loading={!hasMounted || !problem} />
+    <AuthenticatedPage childLoading={!hasMounted || !!!problem}>
+      <Workspace problem={problem as TFormattedQuestion} />
     </AuthenticatedPage>
   );
 };
