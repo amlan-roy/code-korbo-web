@@ -1,5 +1,3 @@
-// points to locally hosted (using docker) jude0 instance for now
-// Need to update it once judge0 API is integrated here
 export const CODE_EXECUTION_DOMAIN = "https://judge0-ce.p.rapidapi.com/";
 
 // These are mapped from the judge0 API
