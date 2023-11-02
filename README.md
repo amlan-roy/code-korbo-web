@@ -1,6 +1,6 @@
 # Code Korbo 💻
 
-![Code Korbo](public\code-korbo-banner.gif)
+![Code Korbo](https://github.com/amlan-roy/code-korbo-web/blob/master/public/code-korbo-banner.gif)
 
 ## Practice Coding Online🚩 Learn New Skills ⚡ Solve Challenges
 
@@ -11,9 +11,7 @@
 
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat) ![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-next-13.svg)](https://forthebadge.com)
-
-![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg) ![forthebadge](https://forthebadge.com/images/badges/for-you.svg)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)](https://forthebadge.com) &emsp; [![forthebadge](https://forthebadge.com/images/badges/made-with-next-13.svg)](https://forthebadge.com) &emsp;![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg) ![forthebadge](https://forthebadge.com/images/badges/for-you.svg)
 
 ## Want to Contribute 🙋‍♂️?
 
